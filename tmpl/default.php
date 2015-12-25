@@ -20,6 +20,23 @@ $baseurl = JUri::base();
 <?php endif; ?>
 
 <?php foreach ($list as $item) : ?>
+    <?php
+    // Alligo
+    if (!empty($gaetclickcat)) {
+        $gaet_data_attrs = ' data-ga-event="click"';
+        $gaet_data_attrs .= 'data-ga-category="' . (!empty($gaetclickcat) ? $gaetclickcat : "ModBanner4varnish/UndefinedCategory") . '"';
+        $gaet_data_attrs .= 'data-ga-action="'. (!empty($gaetclickaction) ? $gaetclickaction : "ModBanner4varnish/Click/UndefinedAction") .'"';
+        $gaet_data_attrs .= 'data-ga-label="' . (!empty($gaetclicklabel) ? $gaetclicklabel : ("ID:" . $item->id . ",CID:" . $item->cid
+    . ",Name:" . JFilterOutput::stringURLSafe($item->name) )) . '" ';
+        if (false) {
+           $gaet_data_attrs .=  'data-ga-value="' . $gaetclickvalue .'" ';
+        }
+    } else {
+        $gaet_data_attrs = '';
+    }
+
+
+    ?>
 	<div class="banneritem">
 		<?php $link = JRoute::_('index.php?option=com_banners&task=click&id=' . $item->id);?>
 		<?php if ($item->type == 1) :?>
@@ -40,6 +57,7 @@ $baseurl = JUri::base();
 					<?php if ($target == 1) :?>
 						<?php // Open in a new window?>
 						<a
+                            <?= $gaet_data_attrs ?>
 							href="<?php echo $link; ?>" target="_blank"
 							title="<?php echo htmlspecialchars($item->name, ENT_QUOTES, 'UTF-8');?>">
 							<img
@@ -52,6 +70,7 @@ $baseurl = JUri::base();
 					<?php elseif ($target == 2):?>
 						<?php // Open in a popup window?>
 						<a
+                            <?= $gaet_data_attrs ?>
 							href="<?php echo $link;?>" onclick="window.open(this.href, '',
 								'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=780,height=550');
 								return false"
@@ -66,6 +85,7 @@ $baseurl = JUri::base();
 					<?php else :?>
 						<?php // Open in parent window?>
 						<a
+                            <?= $gaet_data_attrs ?>
 							href="<?php echo $link;?>"
 							title="<?php echo htmlspecialchars($item->name, ENT_QUOTES, 'UTF-8');?>">
 							<img
