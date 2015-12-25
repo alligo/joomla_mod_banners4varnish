@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+    type="module"
+    version="3.1"
+    client="site"
+    method="upgrade"
+    >
+	<name>mod_banners4varnish</name>
+	<author>Emerson Rocha Luiz @ Alligo</author>
+	<creationDate>2015-12-25</creationDate>
+	<copyright>Copyright (C) 2005 - 2015 Alligo Ltda. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>emerson@alligo.com.br</authorEmail>
+	<authorUrl>http://www.fititnt.org</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_BANNERS4VARNISH_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_banners4varnish">mod_banners4varnish.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_banners4varnish.ini</language>
+		<language tag="en-GB">en-GB.mod_banners4varnish.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic"
+				addfieldpath="/administrator/components/com_banners/models/fields">
+				<field
+					name="target"
+					type="list"
+					default="1"
+					label="MOD_BANNERS4VARNISH_FIELD_TARGET_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_TARGET_DESC">
+					<option
+						value="0">JBROWSERTARGET_PARENT</option>
+					<option
+						value="1">JBROWSERTARGET_NEW</option>
+					<option
+						value="2">JBROWSERTARGET_POPUP</option>
+				</field>
+
+				<field
+					name="count"
+					type="text"
+					default="5"
+					class="validate-numeric"
+					filter="integer"
+					label="MOD_BANNERS4VARNISH_FIELD_COUNT_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_COUNT_DESC" />
+				<field
+					name="cid"
+					type="bannerclient"
+					label="MOD_BANNERS4VARNISH_FIELD_BANNERCLIENT_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_BANNERCLIENT_DESC" />
+
+				<field
+					name="catid"
+					type="category"
+					extension="com_banners"
+					label="JCATEGORY"
+					multiple="true" size="5"
+					default=""
+					description="MOD_BANNERS4VARNISH_FIELD_CATEGORY_DESC" >
+					<option value="">JOPTION_ALL_CATEGORIES</option>
+				</field>
+
+				<field
+					name="tag_search"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="MOD_BANNERS4VARNISH_FIELD_TAG_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_TAG_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="ordering"
+					type="list"
+					default="0"
+					label="MOD_BANNERS4VARNISH_FIELD_RANDOMISE_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_RANDOMISE_DESC">
+					<option
+						value="0">MOD_BANNERS4VARNISH_VALUE_STICKYORDERING</option>
+					<option
+						value="random">MOD_BANNERS4VARNISH_VALUE_STICKYRANDOMISE</option>
+				</field>
+
+				<field
+					name="header_text"
+					type="textarea"
+					filter="safehtml"
+					rows="3"
+					cols="40"
+					label="MOD_BANNERS4VARNISH_FIELD_HEADER_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_HEADER_DESC" />
+
+				<field
+					name="footer_text"
+					type="textarea"
+					filter="safehtml"
+					rows="3"
+					cols="40"
+					label="MOD_BANNERS4VARNISH_FIELD_FOOTER_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_FOOTER_DESC" />
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
