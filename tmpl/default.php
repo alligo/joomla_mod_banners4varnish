@@ -114,3 +114,31 @@ $baseurl = JUri::base();
 	</div>
 <?php endif; ?>
 </div>
+<?php //var_dump($item); ?>
+<?php if (!empty($gaetviews) && !empty($item)) : ?>
+<div
+    data-ga-event="ready"
+    data-ga-category="<?= !empty($gaetviewcat) ? $gaetviewcat : "ModBanner4varnish/UndefinedCategory"; ?>"
+    data-ga-action="<?= !empty($gaetviewaction) ? $gaetviewaction : "ModBanner4varnish/Exibition/UndefinedAction";  ?>"
+    data-ga-label="<?= !empty($gaetviewlabel) ? $gaetviewlabel : ("ID:" . $item->id . ",CID:" . $item->cid
+    . ",Name:" . JFilterOutput::stringURLSafe($item->name) ); ?>">
+</div>
+<?php endif; ?>
+<?php
+// Load library
+if (!empty($gaetclickcat) || !empty($gaetviews)):
+
+    // Load jQuery
+    //JHtml::_('jquery.framework');
+    //$document = JFactory::getDocument();
+    //$document->addScript('/media/alligo/js/gaet.min.js');
+
+?>
+<script>
+    if (GAET) {
+        GAET.initAll();
+    } else {
+        console.log('mod_banners4varnish ERROR! GAET not loaded');
+    }
+</script>
+<?php endif; ?>

@@ -46,3 +46,14 @@ if (!empty($id_modulo)) :
 <?php else: ?>
 <!-- Houve algum erro, e este banner não pôde ser carregado -->
 <?php endif; ?>
+
+<?php
+// Load library
+if (!empty($gaetclickcat) || !empty($gaetviews)) {
+
+    // Load jQuery
+    JHtml::_('jquery.framework');
+    $document = JFactory::getDocument();
+    $document->addScript(JUri::base(true) . '/media/alligo/js/gaet.min.js');
+}
+?>

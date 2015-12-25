@@ -14,6 +14,8 @@ require_once __DIR__ . '/helper.php';
 
 $headerText = trim($params->get('header_text'));
 $footerText = trim($params->get('footer_text'));
+$gaetclick = trim($params->get('gaetclick'));
+$gaetviews = trim($params->get('gaetviews'));
 
 require_once JPATH_ADMINISTRATOR . '/components/com_banners/helpers/banners.php';
 

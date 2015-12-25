@@ -142,6 +142,85 @@
 					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
 					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
 			</fieldset>
+            <fieldset
+				name="gaet">
+				<field
+					name="gaetclick"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="MOD_BANNERS4VARNISH_FIELD_CLICKS_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_CLICKS_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="gaetclickcat"
+					type="text"
+					default="Banner/YourBannerPosition"
+                    hint=""
+					label="MOD_BANNERS4VARNISH_FIELD_GAETCLICKCAT_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_GAETCLICKCAT_DESC" />
+				<field
+					name="gaetclickaction"
+					type="text"
+					default="Banner/Click"
+                    hint=""
+					label="MOD_BANNERS4VARNISH_FIELD_GAETCLICKACTION_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_GAETCLICKACTION_DESC" />
+				<field
+					name="gaetclicklabel"
+					type="text"
+					default=""
+                    hint="Leave empty for banner uid"
+					label="MOD_BANNERS4VARNISH_FIELD_GAETCLICKLABEL_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_GAETCLICKLABEL_DESC" />
+				<field
+					name="gaetclickvalue"
+					type="text"
+					default=""
+                    hint="Must be Integer. Can be empty"
+					label="MOD_BANNERS4VARNISH_FIELD_GAETCLICKVALUE_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_GAETCLICKVALUE_DESC" />
+				<field
+					name="gaetviews"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="MOD_BANNERS4VARNISH_FIELD_IMPRESSIONS_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_IMPRESSIONS_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="gaetviewcat"
+					type="text"
+					default="Banner/YourBannerPosition"
+                    hint=""
+					label="MOD_BANNERS4VARNISH_FIELD_GAETVIEWCAT_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_GAETVIEWCAT_DESC" />
+				<field
+					name="gaetviewaction"
+					type="text"
+					default="Banner/Exhibition"
+                    hint=""
+					label="MOD_BANNERS4VARNISH_FIELD_GAETVIEWACTION_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_GAETVIEWACTION_DESC" />
+				<field
+					name="gaetviewlabel"
+					type="text"
+					default=""
+                    hint="Leave empty for banner uid"
+					label="MOD_BANNERS4VARNISH_FIELD_GAETVIEWLABEL_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_GAETVIEWLABEL_DESC" />
+				<field
+					name="gaetviewvalue"
+					type="text"
+					default=""
+                    hint="Must be Integer. Can be empty"
+					label="MOD_BANNERS4VARNISH_FIELD_GAETVIEWVALUE_LABEL"
+					description="MOD_BANNERS4VARNISH_FIELD_GAETVIEWVALUE_DESC" />
+            </fieldset>
 		</fields>
 	</config>
 </extension>
