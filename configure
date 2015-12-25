@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Internal use. Just to symlink files to a test site
+# Need fist that extension already beem installed, so will remove
+# files and folders and just create symbolic links to repository
+
+
+if [ ! -d "/alligo/code/" ]; then
+  # Este script nao deveria estar sendo executado. Você por acaso fez
+  # upload da pasta inteira?
+  exit
+fi
+
+REPOSITORIO=/alligo/code/alligo/mod_banners4varnish  # Onde está o repositorio?
+WEBPATH=/alligo/web/_/joomla34                             # Onde está o site de de testes
+EXTNAME=mod_banners4varnish
+
+
+# Apaga repositorios e links
+if [[ -d $WEBPATH"/modules/mod_banners4varnish/" && ! -L $WEBPATH"/modules/mod_banners4varnish/" ]]; then
+    echo "Link to $REPOSITORIO"
+    rm -rf $WEBPATH"/modules/mod_banners4varnish/"
+    ln -s $REPOSITORIO $WEBPATH"/modules/mod_banners4varnish" # Repare a falta de / ao final
+fi
+
+if [ -f $WEBPATH"/language/en-GB/en-GB."$EXTNAME".ini" ]; then
+    echo "Link $EXTNAME lang"
+    rm -f $WEBPATH"/language/en-GB/en-GB."$EXTNAME".ini"
+    ln -s $REPOSITORIO"/language/en-GB/en-GB."$EXTNAME".ini" $WEBPATH"/language/en-GB/en-GB."$EXTNAME".ini"
+fi 
+
+if [ -f $WEBPATH"/language/en-GB/en-GB."$EXTNAME".sys.ini" ]; then
+    echo "Link $EXTNAME lang"
+    rm -f $WEBPATH"/language/en-GB/en-GB."$EXTNAME".sys.ini"
+    ln -s $REPOSITORIO"/language/en-GB/en-GB."$EXTNAME".sys.ini" $WEBPATH"/language/en-GB/en-GB."$EXTNAME".sys.ini"
+fi

@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Joomla.Site
+ * @package     Alligo.Modules
  * @subpackage  mod_banners4varnish
  *
  * @copyright   Copyright (C) 2005 - 2015 Alligo Ltda. All rights reserved.
@@ -11,11 +11,11 @@ defined('_JEXEC') or die;
 /**
  * Helper for mod_banners4varnish
  *
- * @package     Joomla.Site
+ * @package     Alligo.Modules
  * @subpackage  mod_banners4varnish
- * @since       1.5
+ * @since       3.4
  */
-class ModBannersHelper
+class ModBanners4varnishHelper
 {
 
     /**

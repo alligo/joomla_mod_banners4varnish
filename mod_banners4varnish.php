@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Joomla.Site
+ * @package     Alligo.Modules
  * @subpackage  mod_banners4varnish
  *
  * @copyright   Copyright (C) 2005 - 2015 Alligo Ltda. All rights reserved.
@@ -16,8 +16,8 @@ $headerText = trim($params->get('header_text'));
 $footerText = trim($params->get('footer_text'));
 
 require_once JPATH_ADMINISTRATOR . '/components/com_banners/helpers/banners.php';
-BannersHelper::updateReset();
-$list = &ModBannersHelper::getList($params);
+ModBanners4varnishHelper::updateReset();
+$list = &ModBanners4varnishHelper::getList($params);
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
 require JModuleHelper::getLayoutPath('mod_banners4varnish', $params->get('layout', 'default'));
