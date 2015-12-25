@@ -17,11 +17,12 @@ $footerText = trim($params->get('footer_text'));
 $gaetclick = trim($params->get('gaetclick'));
 $gaetviews = trim($params->get('gaetviews'));
 
-require_once JPATH_ADMINISTRATOR . '/components/com_banners/helpers/banners.php';
-
-if (class_exists('BannerHelper')) {
-    // Only execute if already not loaded by native mod_banners
-    BannerHelper::updateReset();
+if (!class_exists('BannerHelper')) {
+    require_once JPATH_ADMINISTRATOR . '/components/com_banners/helpers/banners.php';
+    if (class_exists('BannerHelper')) {
+        // Only execute if already not loaded by native mod_banners
+        BannerHelper::updateReset();
+    }
 }
 
 $list = &ModBanners4varnishHelper::getList($params);

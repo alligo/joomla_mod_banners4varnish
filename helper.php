@@ -85,28 +85,33 @@ class ModBanners4varnishHelper
 
         if ($modulo_agora_title) {
             $module = JModuleHelper::getModule('banners4varnish', $modulo_agora_title);
-            $registry = new JRegistry;
-            $params = $registry->loadString($module->params);
-            $list = self::getList($params);
-            $headerText = trim($params->get('header_text'));
-            $footerText = trim($params->get('footer_text'));
-            $gaetclickcat = trim($params->get('gaetclickcat'));
-            $gaetclick = trim($params->get('gaetclick'));
-            $gaetclickcat = trim($params->get('gaetclickcat'));
-            $gaetclickaction = trim($params->get('gaetclickaction'));
-            $gaetclicklabel = trim($params->get('gaetclicklabel'));
-            $gaetclicklabel = trim($params->get('gaetclicklabel'));
-            $gaetclickvalue = trim($params->get('gaetclickvalue'));
-            $gaetviews = trim($params->get('gaetviews'));
-            $gaetviewcat = trim($params->get('gaetviewcat'));
-            $gaetviewaction = trim($params->get('gaetviewaction'));
-            $gaetviewlabel = trim($params->get('gaetviewlabel'));
-            $gaetviewvalue = trim($params->get('gaetviewvalue'));
-            $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
+            //var_dump($module, $modulo_agora_title);
+            if (!empty($module)) {
+                $registry = new JRegistry;
+                $params = $registry->loadString($module->params);
+                $list = self::getList($params);
+                $headerText = trim($params->get('header_text'));
+                $footerText = trim($params->get('footer_text'));
+                $gaetclick = trim($params->get('gaetclick'));
+                $gaetclickcat = trim($params->get('gaetclickcat'));
+                $gaetclickaction = trim($params->get('gaetclickaction'));
+                $gaetclicklabel = trim($params->get('gaetclicklabel'));
+                $gaetclicklabel = trim($params->get('gaetclicklabel'));
+                $gaetclickvalue = trim($params->get('gaetclickvalue'));
+                $gaetviews = trim($params->get('gaetviews'));
+                $gaetviewcat = trim($params->get('gaetviewcat'));
+                $gaetviewaction = trim($params->get('gaetviewaction'));
+                $gaetviewlabel = trim($params->get('gaetviewlabel'));
+                $gaetviewvalue = trim($params->get('gaetviewvalue'));
+                $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
-            require JModuleHelper::getLayoutPath('mod_banners4varnish', 'default');
+                require JModuleHelper::getLayoutPath('mod_banners4varnish', 'default');
+            } else {
+                return '<!-- mod_banners4varnish getAjax: error to load banner by title -->';
+            }
+
         } else {
-            return '<!-- mod_banners4varnish getAjax: error to load module -->';
+            return '<!-- mod_banners4varnish getAjax: error to find banner by id -->';
         }
     }
 }

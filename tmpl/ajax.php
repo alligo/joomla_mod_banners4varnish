@@ -31,17 +31,17 @@ foreach ($modules AS $module) {
         }
     }
 }
-//var_dump($module);
+//var_dump(JFactory::getApplication()->input->getInt('Itemid', 0));
+//var_dump(JFactory::getApplication()->input->getInt('id', 0));
 //die;
 if (!empty($id_modulo)) :
 ?>
 <div class="banner-ajax" id="banner-ajax<?= $id_modulo ?>"></div>
 <script>
-    // Carrega o banner entre 50 a 200ms
+    // Delay loading from 50ms to 200ms, to avoid a bit of overload the server
     setTimeout(function() {
-        jQuery("#banner-ajax<?= $id_modulo ?>").load("<?= JUri::base(true) ?>/index.php?option=com_ajax&module=banners4varnish&format=raw&bannerid=<?= $id_modulo ?>&no_cache=" + (new Date().getTime()));
+        jQuery("#banner-ajax<?= $id_modulo ?>").load("<?= JUri::base(true) ?>/index.php?option=com_ajax&module=banners4varnish&format=raw&bannerid=<?= $id_modulo ?>&Itemid=<?= JFactory::getApplication()->input->getInt('Itemid', 0) ?>&id=<?= JFactory::getApplication()->input->getInt('id', 0) ?>&no_cache=" + (new Date().getTime()));
     }, (Math.floor(Math.random() * (200 - 50)) + 50));
-    //}, 500 + (Math.floor(Math.random() * (600 - 100)) + 100));
 </script>
 <?php else: ?>
 <!-- Houve algum erro, e este banner não pôde ser carregado -->
