@@ -23,6 +23,9 @@
 		<language tag="en-GB">en-GB/en-GB.mod_banners4varnish.ini</language>
 		<language tag="en-GB">en-GB/en-GB.mod_banners4varnish.sys.ini</language>
 	</languages>
+    <media destination="alligo" folder="media">
+     <folder>js</folder>
+    </media>
 	<config>
 		<fields name="params">
 			<fieldset name="basic"

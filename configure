@@ -27,10 +27,12 @@ if [ -f $WEBPATH"/language/en-GB/en-GB."$EXTNAME".ini" ]; then
     echo "Link $EXTNAME lang"
     rm -f $WEBPATH"/language/en-GB/en-GB."$EXTNAME".ini"
     ln -s $REPOSITORIO"/language/en-GB/en-GB."$EXTNAME".ini" $WEBPATH"/language/en-GB/en-GB."$EXTNAME".ini"
-fi 
+fi
 
 if [ -f $WEBPATH"/language/en-GB/en-GB."$EXTNAME".sys.ini" ]; then
     echo "Link $EXTNAME lang"
     rm -f $WEBPATH"/language/en-GB/en-GB."$EXTNAME".sys.ini"
     ln -s $REPOSITORIO"/language/en-GB/en-GB."$EXTNAME".sys.ini" $WEBPATH"/language/en-GB/en-GB."$EXTNAME".sys.ini"
 fi
+
+#ln -s /alligo/code/alligo/mod_banners4varnish/media/ /alligo/web/_/joomla34/media/alligo

@@ -61,6 +61,7 @@ class ModBanners4varnishHelper
     {
         //$modules = JModuleHelper::getModuleList();
         $banner_id = JFactory::getApplication()->input->getInt('bannerid', null);
+
 //        $modules = JModuleHelper::getModuleList();
 //        if (!empty($modules) && is_array($modules)) {
 //            foreach ($modules AS $module) {
@@ -83,13 +84,17 @@ class ModBanners4varnishHelper
         //var_dump($banner_id, $modulo_agora, $modules);
 
         if ($modulo_agora_title) {
-            $module = JModuleHelper::getModule('banners', $modulo_agora_title);
+            $module = JModuleHelper::getModule('banners4varnish', $modulo_agora_title);
             $registry = new JRegistry;
             $params = $registry->loadString($module->params);
             $list = self::getList($params);
+            $headerText = trim($params->get('header_text'));
+            $footerText = trim($params->get('footer_text'));
+            $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
+
             require JModuleHelper::getLayoutPath('mod_banners4varnish', 'default');
         } else {
-            return '<!-- mod_banners4varnish getAjax: erro ao obter modulo -->';
+            return '<!-- mod_banners4varnish getAjax: error to load module -->';
         }
     }
 }

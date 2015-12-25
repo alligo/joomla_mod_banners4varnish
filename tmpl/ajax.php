@@ -39,7 +39,7 @@ if (!empty($id_modulo)) :
 <script>
     // Carrega o banner entre 50 a 200ms
     setTimeout(function() {
-        jQuery("#banner-ajax<?= $id_modulo ?>").load("/index.php?option=com_ajax&module=banners&format=raw&bannerid=<?= $id_modulo ?>&no_cache=" + (new Date().getTime()));
+        jQuery("#banner-ajax<?= $id_modulo ?>").load("<?= JUri::base(true) ?>/index.php?option=com_ajax&module=banners4varnish&format=raw&bannerid=<?= $id_modulo ?>&no_cache=" + (new Date().getTime()));
     }, (Math.floor(Math.random() * (200 - 50)) + 50));
     //}, 500 + (Math.floor(Math.random() * (600 - 100)) + 100));
 </script>
