@@ -1,11 +1,16 @@
 <?php
-defined('_JEXEC') or die;
-//print_r($params);
-//print_r($list);
-$modules = JModuleHelper::getModuleList();
-//echo '<pre>' ; var_dump($params); echo '</pre>';
+/**
+ * @package     Alligo.Modules
+ * @subpackage  mod_banners4varnish
+ *
+ * @copyright   Copyright (C) 2005 - 2015 Alligo Ltda. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 
-//echo '<pre>' ; var_dump($params, htmlentities(json_encode($modules))); echo '</pre>';
+defined('_JEXEC') or die;
+
+$modules = JModuleHelper::getModuleList();
+
 $id_modulo = null;
 foreach ($modules AS $module) {
     if ($module->module === 'mod_banners4varnish') {
@@ -21,19 +26,13 @@ foreach ($modules AS $module) {
                 $module_params['footer_text'] === $params['footer_text'] &&
                 $module_params['moduleclass_sfx'] === $params['moduleclass_sfx']
             ) {
-                //var_dump($module_params->catid, $params->catid, $params['catid'], $module_params->ordering, $module_params->header_text, $params);die;
                 $id_modulo = $module->id;
                 break;
             }
-            //var_dump($module);
-            //var_dump($module_params->layout);
-            //die;
         }
     }
 }
-//var_dump(JFactory::getApplication()->input->getInt('Itemid', 0));
-//var_dump(JFactory::getApplication()->input->getInt('id', 0));
-//die;
+
 if (!empty($id_modulo)) :
 ?>
 <div class="banner-ajax" id="banner-ajax<?= $id_modulo ?>"></div>
@@ -53,7 +52,8 @@ if (!empty($gaetclickcat) || !empty($gaetviews)) {
 
     // Load jQuery
     JHtml::_('jquery.framework');
-    $document = JFactory::getDocument();
-    $document->addScript(JUri::base(true) . '/media/alligo/js/gaet.min.js');
+
+    // Protip: You can override this file, placing a copy on /templates/yourtemplate/js/alligo/gaet.min.js
+    JHtml::script('alligo/gaet.min.js', false, true, false);
 }
 ?>
