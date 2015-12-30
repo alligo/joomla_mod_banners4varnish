@@ -48,7 +48,7 @@ if (!empty($id_modulo)) :
 
 <?php
 // Load library
-if (!empty($gaetclickcat) || !empty($gaetviews)) {
+if (!empty($gaetclick) || !empty($gaetviews)) {
 
     // Load jQuery
     JHtml::_('jquery.framework');

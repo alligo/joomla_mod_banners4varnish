@@ -1,10 +1,12 @@
-# Joomla CMS module extension mod_banners4varnish - 1.0.0beta
+# Joomla CMS module extension mod_banners4varnish - 1.0.0
 **This extension is ideal for high traffic sites that full page cache is really
 need, but still need rotate banners. Out of the box allow Google Analytics
 Event Tracking, to help how to understand your public and find best strategies
 to monetize your content**
 
-Free Joomla CMS Module extension, similar to native mod_banners, but load async to bypass Varnish Cache. Also add Google Analytics Event Tracking.
+Free Joomla CMS Module extension, similar to native mod_banners, but load async
+to bypass Varnish Cache, or any other proxy cache, like popular CDNs
+(CloudFlare, CDN77, Akamai...). Also add Google Analytics Event Tracking.
 
 Other links to see
 - [Joomla CMS system plugin for Joomla + Varnish](https://github.com/alligo/plg_system_alligovarnish)
